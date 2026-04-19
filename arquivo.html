@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arquivo — Radar de Mercado Gela Boca</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #FFF0F6; font-family: Arial, Helvetica, sans-serif; color: #1A1A2E; min-height: 100vh; }
+
+  .header {
+    background: linear-gradient(135deg, #C2185B 0%, #E91E8C 55%, #AD1457 100%);
+    padding: 36px 32px 30px;
+    text-align: center;
+  }
+  .header-eyebrow {
+    font-size: 10px; color: rgba(255,255,255,0.72); letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 10px; line-height: 1.6;
+  }
+  .header-brand {
+    font-size: 38px; font-weight: 900; color: #fff;
+    letter-spacing: 8px; text-transform: uppercase; margin-bottom: 4px;
+  }
+  .header-title { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .header-sub { font-size: 13px; color: rgba(255,255,255,0.82); margin-bottom: 16px; }
+  .header-pill {
+    display: inline-block; background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35); border-radius: 20px;
+    padding: 5px 18px; font-size: 12px; color: #fff; font-weight: 600;
+  }
+
+  .rainbow { height: 5px; background: linear-gradient(90deg,#E91E8C,#F5C518,#7B1FA2,#1565C0,#2E7D32); }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 36px 20px 60px; }
+
+  .section-title {
+    font-size: 11px; font-weight: 700; color: #C2185B;
+    text-transform: uppercase; letter-spacing: 2px;
+    margin-bottom: 20px; text-align: center;
+  }
+
+  .year-label {
+    font-size: 13px; font-weight: 700; color: #5C5C6E;
+    text-transform: uppercase; letter-spacing: 2px;
+    margin: 32px 0 12px; padding-bottom: 8px;
+    border-bottom: 2px solid #F8BBD9;
+  }
+
+  .edition-card {
+    background: #fff;
+    border-radius: 12px;
+    border-left: 5px solid #E91E8C;
+    padding: 20px 24px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 12px rgba(194,24,91,0.07);
+    text-decoration: none;
+    transition: box-shadow 0.2s;
+    gap: 16px;
+  }
+  .edition-card:hover { box-shadow: 0 4px 20px rgba(194,24,91,0.18); }
+
+  .edition-card.week-15 { border-left-color: #7B1FA2; }
+  .edition-card.week-14 { border-left-color: #1565C0; }
+  .edition-card.week-13 { border-left-color: #2E7D32; }
+  .edition-card.week-12 { border-left-color: #E65100; }
+
+  .edition-left { flex: 1; }
+  .edition-badge {
+    display: inline-block;
+    background: #FFF0F6; color: #E91E8C;
+    border: 1px solid #F8BBD9;
+    border-radius: 20px; padding: 3px 12px;
+    font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .edition-badge.purple { background: #F3E5F5; color: #7B1FA2; border-color: #CE93D8; }
+  .edition-badge.blue { background: #E3F2FD; color: #1565C0; border-color: #90CAF9; }
+  .edition-badge.green { background: #E8F5E9; color: #2E7D32; border-color: #A5D6A7; }
+  .edition-badge.orange { background: #FFF3E0; color: #E65100; border-color: #FFCC80; }
+
+  .edition-title { font-size: 16px; font-weight: 700; color: #1A1A2E; margin-bottom: 4px; }
+  .edition-meta { font-size: 12px; color: #5C5C6E; }
+
+  .edition-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #E91E8C; color: #fff;
+    border-radius: 20px; padding: 9px 20px;
+    font-size: 13px; font-weight: 700;
+    text-decoration: none; white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .edition-btn.purple { background: #7B1FA2; }
+  .edition-btn.blue { background: #1565C0; }
+  .edition-btn.green { background: #2E7D32; }
+  .edition-btn.orange { background: #E65100; }
+  .edition-btn.disabled {
+    background: #E0E0E0; color: #9E9E9E; cursor: default; pointer-events: none;
+  }
+
+  .coming-soon {
+    background: #fff; border-radius: 12px;
+    border-left: 5px solid #E0E0E0;
+    padding: 16px 24px; margin-bottom: 14px;
+    display: flex; align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    gap: 16px; opacity: 0.6;
+  }
+  .coming-soon-text { font-size: 14px; color: #9E9E9E; font-style: italic; }
+  .coming-soon-date { font-size: 12px; color: #BDBDBD; }
+
+  .stats-bar {
+    background: #1A1A2E; border-radius: 12px;
+    padding: 20px 28px; margin-bottom: 32px;
+    display: flex; align-items: center; justify-content: space-around; gap: 12px;
+    flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-value { font-size: 26px; font-weight: 900; color: #E91E8C; }
+  .stat-label { font-size: 10px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+  .footer {
+    background: #1A1A2E; padding: 24px 32px; text-align: center;
+    border-top: 3px solid #E91E8C; margin-top: 0;
+  }
+  .footer p { font-size: 12px; color: #9E9E9E; margin-bottom: 4px; }
+  .footer strong { color: #fff; font-size: 13px; }
+  .footer a { color: #E91E8C; text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .edition-card { flex-direction: column; align-items: flex-start; }
+    .stats-bar { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <p class="header-eyebrow">● MONITORAMENTO SEMANAL · MERCADO DE SORVETES<br>Projeto de Inovação e Inteligência de Mercado | Time Branding</p>
+  <div class="header-brand">GELA BOCA</div>
+  <div class="header-title">Radar de Mercado — Arquivo</div>
+  <p class="header-sub">Todas as edições do boletim semanal de inteligência do setor de sorvetes e sobremesas.</p>
+  <span class="header-pill">Histórico completo por semana</span>
+</div>
+
+<div class="rainbow"></div>
+
+<div class="container">
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-value">2</div>
+      <div class="stat-label">Edições publicadas</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">2026</div>
+      <div class="stat-label">Ano de início</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">14+</div>
+      <div class="stat-label">Fontes monitoradas</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">6</div>
+      <div class="stat-label">Marcas benchmark</div>
+    </div>
+  </div>
+
+  <p class="section-title">📂 Edições por Semana</p>
+
+  <!-- 2026 -->
+  <div class="year-label">2026</div>
+
+  <!-- SEMANA 16 -->
+  <a href="relatorio-visual-2026-04-16.html" class="edition-card">
+    <div class="edition-left">
+      <span class="edition-badge">Semana 16 · Edição mais recente</span>
+      <div class="edition-title">10 a 16 de abril de 2026</div>
+      <div class="edition-meta">Ben &amp; Jerry's x Magnum · GLP-1 cresce 34% YoY · Chiquinho x KitKat collab · +16,3% BR</div>
+    </div>
+    <a href="relatorio-visual-2026-04-16.html" class="edition-btn">Ver relatório →</a>
+  </a>
+
+  <!-- SEMANA 15 -->
+  <a href="relatorio-visual-2026-04-14.html" class="edition-card week-15">
+    <div class="edition-left">
+      <span class="edition-badge purple">Semana 15</span>
+      <div class="edition-title">3 a 9 de abril de 2026</div>
+      <div class="edition-meta">Edição anterior — relatório completo com indicadores, gráficos e benchmark de marcas</div>
+    </div>
+    <a href="relatorio-visual-2026-04-14.html" class="edition-btn purple">Ver relatório →</a>
+  </a>
+
+  <!-- PRÓXIMAS — coming soon -->
+  <div class="year-label" style="margin-top:28px; color:#9E9E9E; border-color:#E0E0E0;">Próximas edições</div>
+
+  <div class="coming-soon">
+    <div>
+      <div class="coming-soon-text">Semana 17 — 17 a 23 de abril de 2026</div>
+      <div class="coming-soon-date">Publicação: segunda-feira, 20 abr · 07:00 BRT</div>
+    </div>
+    <span class="edition-btn disabled">Em breve</span>
+  </div>
+
+  <div class="coming-soon">
+    <div>
+      <div class="coming-soon-text">Semana 18 — 24 a 30 de abril de 2026</div>
+      <div class="coming-soon-date">Publicação: segunda-feira, 27 abr · 07:00 BRT</div>
+    </div>
+    <span class="edition-btn disabled">Em breve</span>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p><strong>Inteligência de Mercado — Time Branding</strong></p>
+  <p>Projeto de Inovação e Inteligência de Mercado</p>
+  <p>Coord. Alessandra Rossi 🟢 <a href="https://wa.me/5544998945309">44 998945309</a> &nbsp;|&nbsp; Estrategista: Ale Oliveira 🟢 <a href="https://wa.me/5544999077313">44 999077313</a></p>
+  <p style="margin-top:10px; color: #616161; font-size:11px;">© 2026 Gela Boca · Publicado toda segunda-feira às 07:00 BRT</p>
+</div>
+
+</body>
+</html>
