@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fontes & Radar Global — Gela Boca</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #FFF0F6; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #1A1A2E; min-height: 100vh; line-height: 1.5; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #E91E8C 0%, #C2185B 55%, #880E4F 100%);
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(233,30,140,0.28);
+  }
+  .header-eyebrow {
+    font-size: 11px; color: rgba(255,255,255,0.78); letter-spacing: 2.5px;
+    text-transform: uppercase; margin-bottom: 14px; line-height: 1.7; font-weight: 700;
+  }
+  .header-brand {
+    font-size: 38px; font-weight: 900; color: #fff;
+    letter-spacing: 8px; text-transform: uppercase; margin-bottom: 6px;
+  }
+  .header-title { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 10px; letter-spacing: 0.5px; }
+  .header-sub { font-size: 14px; color: rgba(255,255,255,0.86); max-width: 720px; margin: 0 auto 18px; }
+  .header-pill {
+    display: inline-block; background: rgba(255,255,255,0.18);
+    border: 1.5px solid rgba(255,255,255,0.35); border-radius: 20px;
+    padding: 6px 20px; font-size: 12px; color: #fff; font-weight: 700; letter-spacing: 0.5px;
+  }
+
+  .rainbow { height: 5px; background: linear-gradient(90deg,#E91E8C,#F5C518,#7B1FA2,#1565C0,#2E7D32); }
+
+  .container { max-width: 980px; margin: 0 auto; padding: 36px 20px 60px; }
+
+  /* INTRO / TOC */
+  .intro {
+    background: #fff; border-radius: 14px; border-left: 5px solid #E91E8C;
+    padding: 22px 26px; margin-bottom: 28px;
+    box-shadow: 0 2px 12px rgba(194,24,91,0.08);
+    font-size: 14px; color: #3A3A52;
+  }
+  .intro strong { color: #C2185B; }
+  .toc {
+    background: #1A1A2E; border-radius: 14px;
+    padding: 22px 26px; margin-bottom: 36px;
+    color: #fff;
+  }
+  .toc-title {
+    font-size: 11px; font-weight: 800; letter-spacing: 2px;
+    color: #E91E8C; text-transform: uppercase; margin-bottom: 14px;
+  }
+  .toc-list {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 24px;
+    list-style: none;
+  }
+  .toc-list li { font-size: 13px; }
+  .toc-list a { color: #fff; text-decoration: none; opacity: 0.85; transition: opacity 0.2s; }
+  .toc-list a:hover { opacity: 1; color: #F8BBD9; }
+  .toc-list .num { color: #E91E8C; font-weight: 800; margin-right: 8px; }
+
+  /* SECTION */
+  .section { margin-bottom: 40px; }
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 18px; padding-bottom: 12px;
+    border-bottom: 3px solid #F8BBD9;
+  }
+  .section-num {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #E91E8C; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 900; flex-shrink: 0;
+  }
+  .section-num.purple { background: #7B1FA2; }
+  .section-num.blue { background: #1565C0; }
+  .section-num.green { background: #2E7D32; }
+  .section-num.orange { background: #E65100; }
+  .section-num.gold { background: #F5A623; }
+  .section-title {
+    font-size: 20px; font-weight: 800; color: #1A1A2E;
+    flex: 1;
+  }
+  .section-tag {
+    font-size: 10px; font-weight: 700; color: #C2185B;
+    background: #FFF0F6; border: 1px solid #F8BBD9;
+    border-radius: 12px; padding: 4px 10px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+
+  .subsection-title {
+    font-size: 12px; font-weight: 800; color: #5C5C6E;
+    text-transform: uppercase; letter-spacing: 2px;
+    margin: 22px 0 10px;
+  }
+
+  /* SOURCE CARDS */
+  .source {
+    background: #fff; border-radius: 10px;
+    border-left: 4px solid #E91E8C;
+    padding: 14px 18px; margin-bottom: 10px;
+    box-shadow: 0 1px 6px rgba(194,24,91,0.06);
+    transition: transform 0.15s, box-shadow 0.2s;
+  }
+  .source:hover { box-shadow: 0 4px 16px rgba(194,24,91,0.18); transform: translateX(2px); }
+  .source.purple { border-left-color: #7B1FA2; }
+  .source.blue { border-left-color: #1565C0; }
+  .source.green { border-left-color: #2E7D32; }
+  .source.orange { border-left-color: #E65100; }
+  .source.gold { border-left-color: #F5A623; }
+  .source-top { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
+  .source-name {
+    font-size: 15px; font-weight: 800; color: #C2185B;
+    text-decoration: none;
+  }
+  .source-name:hover { text-decoration: underline; }
+  .source.purple .source-name { color: #7B1FA2; }
+  .source.blue .source-name { color: #1565C0; }
+  .source.green .source-name { color: #2E7D32; }
+  .source.orange .source-name { color: #E65100; }
+  .source.gold .source-name { color: #B8860B; }
+  .source-type {
+    font-size: 9px; font-weight: 800; color: #fff;
+    background: #C2185B; border-radius: 10px;
+    padding: 2px 8px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .source-type.purple { background: #7B1FA2; }
+  .source-type.blue { background: #1565C0; }
+  .source-type.green { background: #2E7D32; }
+  .source-type.orange { background: #E65100; }
+  .source-type.gold { background: #F5A623; color: #1A1A2E; }
+  .source-type.dark { background: #1A1A2E; }
+  .source-url {
+    font-size: 11px; color: #9E9E9E;
+    font-family: 'Consolas', 'Monaco', monospace;
+    word-break: break-all;
+  }
+  .source-desc {
+    font-size: 13px; color: #3A3A52;
+    margin-top: 6px;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: #1A1A2E; padding: 32px 32px; text-align: center;
+    border-top: 4px solid #E91E8C; margin-top: 40px;
+  }
+  .footer p { font-size: 12px; color: #9E9E9E; margin-bottom: 6px; }
+  .footer strong { color: #fff; font-size: 13px; }
+  .footer a { color: #E91E8C; text-decoration: none; }
+  .footer .nav { margin-bottom: 14px; }
+  .footer .nav a { color: #E91E8C; font-weight: 700; margin: 0 12px; }
+
+  @media (max-width: 640px) {
+    .toc-list { grid-template-columns: 1fr; }
+    .header-brand { font-size: 30px; letter-spacing: 4px; }
+    .container { padding: 24px 14px 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <p class="header-eyebrow">● RADAR GLOBAL DE INTELIGÊNCIA · MERCADO DE SORVETES + ALIMENTAÇÃO + BRANDING + IA + VAREJO<br>Projeto de Inovação e Inteligência de Mercado | Time Branding</p>
+  <div class="header-brand">GELA BOCA</div>
+  <div class="header-title">Fontes & Radar Global de Monitoramento</div>
+  <p class="header-sub">Mapa curado de sites, mídias, canais, revistas, redes sociais, fóruns, eventos, ferramentas e relatórios — tudo o que alimenta o Radar de Mercado semanal.</p>
+  <span class="header-pill">v1 · 17 mai 2026 · 12 categorias · ~150 fontes</span>
+</div>
+
+<div class="rainbow"></div>
+
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="intro">
+    <strong>Como usar este documento.</strong> Cada bloco abaixo é uma categoria de inteligência. Para cada fonte: nome (link), tipo (site, newsletter, revista, podcast, evento, rede social, fórum, ferramenta) e uma linha explicando por que ela importa para a Gela Boca. Use como mapa de assinaturas no Feedly/Inoreader, pauta de monitoramento semanal, ou rede de "antenas" para o que vira hype antes de virar mainstream.
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">📑 Sumário das categorias</div>
+    <ul class="toc-list">
+      <li><a href="#sec1"><span class="num">01</span> Mercado de Sorvete — Brasil</a></li>
+      <li><a href="#sec2"><span class="num">02</span> Mercado Global — Dados & Pesquisas</a></li>
+      <li><a href="#sec3"><span class="num">03</span> Gelato Italiano — Indústria & Cultura</a></li>
+      <li><a href="#sec4"><span class="num">04</span> Marcas Benchmark — Imprensa & Releases</a></li>
+      <li><a href="#sec5"><span class="num">05</span> Tendências de Alimentos — Globais</a></li>
+      <li><a href="#sec6"><span class="num">06</span> Branding, Design & Packaging</a></li>
+      <li><a href="#sec7"><span class="num">07</span> Marketing & Comunicação — Brasil</a></li>
+      <li><a href="#sec8"><span class="num">08</span> Negócios, Varejo & Estratégia</a></li>
+      <li><a href="#sec9"><span class="num">09</span> IA + Consumo + Varejo</a></li>
+      <li><a href="#sec10"><span class="num">10</span> Trend Forecasting & Cultura</a></li>
+      <li><a href="#sec11"><span class="num">11</span> Social, Hype & Viral</a></li>
+      <li><a href="#sec12"><span class="num">12</span> Eventos, Feiras & Ferramentas</a></li>
+    </ul>
+  </div>
+
+  <!-- ============ SEÇÃO 1 ============ -->
+  <div class="section" id="sec1">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title">Mercado de Sorvete — Brasil</div>
+      <span class="section-tag">Dados nacionais</span>
+    </div>
+
+    <div class="subsection-title">Associações & Entidades de Classe</div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://abis.com.br/" class="source-name" target="_blank">ABIS — Associação Brasileira das Indústrias e do Setor de Sorvetes</a>
+        <span class="source-type">Associação</span>
+      </div>
+      <div class="source-url">https://abis.com.br/ &nbsp;·&nbsp; <a href="https://abis.com.br/mercado/" target="_blank" style="color:#1565C0;">/mercado</a></div>
+      <div class="source-desc">Fonte primária de dados: ~11 mil empresas, faturamento >R$ 15 bi, consumo per capita 5,0 L/ano. Publica retrospectiva anual, projeções e estudos de investimento do setor.</div>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://abrasorvete.com.br/" class="source-name" target="_blank">Abrasorvete — Associação Brasileira do Sorvete e Outros Gelados Comestíveis</a>
+        <span class="source-type">Associação</span>
+      </div>
+      <div class="source-url">https://abrasorvete.com.br/</div>
+      <div class="source-desc">Projeções macro do varejo (ex.: +16,3% vendas em 2026), Dia Nacional do Sorvete (23/set), clipping setorial. Complementa ABIS pelo lado do ponto de venda.</div>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://sebrae.com.br/sites/PortalSebrae/segmentos/sorveteria" class="source-name" target="_blank">Sebrae — Segmento Sorveteria</a>
+        <span class="source-type">Apoio PME</span>
+      </div>
+      <div class="source-url">sebrae.com.br/sites/PortalSebrae/segmentos/sorveteria</div>
+      <div class="source-desc">Estudos de mercado, modelos de negócio, fluxo de caixa, planos de PDV — ótimo para benchmark de pequenas sorveterias e expansão por franquia.</div>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://abf.com.br/numeros-do-franchising/" class="source-name" target="_blank">ABF — Números do Franchising</a>
+        <span class="source-type">Associação</span>
+      </div>
+      <div class="source-url">abf.com.br/numeros-do-franchising</div>
+      <div class="source-desc">Mercado de franquias >R$ 300 bi em 2025 (+10,5%); açaí/sorvete continuam no topo da demanda. Projeção 2026: +8% a +10% nominais.</div>
+    </div>
+
+    <div class="subsection-title">Mídias B2B especializadas</div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://issuu.com/maxfoodsrevistas" class="source-name" target="_blank">Revista Mercado Sorveteiro (Max Foods)</a>
+        <span class="source-type">Revista</span>
+      </div>
+      <div class="source-url">issuu.com/maxfoodsrevistas</div>
+      <div class="source-desc">Principal revista B2B do setor sorveteiro no Brasil — lançamentos, fornecedores, casos de sorveteria, edições publicadas no Issuu.</div>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://www.foodservicenews.com.br/" class="source-name" target="_blank">Food Service News</a>
+        <span class="source-type">Portal B2B</span>
+      </div>
+      <div class="source-url">foodservicenews.com.br</div>
+      <div class="source-desc">Quase 20 anos cobrindo food service brasileiro — pautas de sobremesas, sorveterias e cafeterias, com vieses operacionais e de negócio.</div>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://foodmagazine.com.br/" class="source-name" target="_blank">Food Magazine</a>
+        <span class="source-type">Portal B2B</span>
+      </div>
+      <div class="source-url">foodmagazine.com.br</div>
+      <div class="source-desc">Notícias de food service, lançamentos de marcas, panorama de delivery e conveniência — útil para captar movimentos adjacentes ao sorvete.</div>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://issuu.com/maxfoodsrevistas/docs/revista_confeitaria_brasil_ed_85" class="source-name" target="_blank">Revista Confeitaria Brasil</a>
+        <span class="source-type">Revista</span>
+      </div>
+      <div class="source-url">Max Foods · Issuu</div>
+      <div class="source-desc">Confeitaria, padaria e sobremesas — fonte cruzada com sorveteria para tendências de sabores, técnicas e cardápios sazonais.</div>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://www.doisamaisalimentos.com.br/" class="source-name" target="_blank">2A+ Alimentos</a>
+        <span class="source-type">Portal B2B</span>
+      </div>
+      <div class="source-url">doisamaisalimentos.com.br</div>
+      <div class="source-desc">Indústria de alimentos brasileira, com cobertura recorrente de sorvetes (ABIS), embalagens e ingredientes.</div>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://www.linkedin.com/company/abisbr" class="source-name" target="_blank">ABIS no LinkedIn</a>
+        <span class="source-type">Rede social</span>
+      </div>
+      <div class="source-url">linkedin.com/company/abisbr</div>
+      <div class="source-desc">Atualizações em tempo real da associação, anúncios de prêmios setoriais e movimentos de executivos da indústria.</div>
+    </div>
+  </div>
+
+  <!-- ============ SEÇÃO 2 ============ -->
+  <div class="section" id="sec2">
+    <div class="section-header">
+      <div class="section-num purple">02</div>
+      <div class="section-title">Mercado Global — Dados & Pesquisas</div>
+      <span class="section-tag" style="color:#7B1FA2;background:#F3E5F5;border-color:#CE93D8;">Inteligência paga</span>
+    </div>
+
+    <div class="subsection-title">Relatórios de mercado (premium / paywall)</div>
+
+    <div class="source purple">
+      <div class="source-top">
+        <a href="https://store.mintel.com/industries/food/desserts-ice-cream" class="source-name" target="_blank">Mintel — Desserts & Ice Cream</a>
+        <span class="source-type purple">Research</span>
+      </div>
+      <div class="source-url">store.mintel.com/industries/food/desserts-ice-cream</div>
+      <div class="source-desc">Padrão-ouro de relatórios de tendências e tamanho de mercado por país. Insight aberto recente: "Is Ice Cream Stepping Out Of Its Comfort Zone?"</div>
+    </div>
+
+    <div class="source purple">
+      <div class="source-top">
+        <a href="https://www.euromonitor.com/store/explore-reports/snacks/ice-cream" class="source-name" target="_blank">Euromonitor — Ice Cream</a>
+        <span class="source-type purple">Research</span>
+      </div>
+      <div class="source-url">euromonitor.com/store/explore-reports/snacks/ice-cream</div>
+      <div class="source-desc">Dados Passport: share por marca/canal/país, projeções de 5 anos. Crítico para benchmarking internacional.</div>
+    </div>
+
+    <div class="source purple">
+      <div class="source-top">
+        <a href="https://www.mordorintelligence.com/industry-reports/ice-cream-market" class="source-name" target="_blank">Mordor Intelligence — Ice Cream Market 2026–2031</a>
+        <span class="source-type purple">Research</span>
+      </div>
+      <div class="source-url">mordorintelligence.com/industry-reports/ice-cream-market</div>
+      <div class="source-desc">Alternativa mais acessível (sumários e amostras gratuitas) com CAGR, segmentação e drivers regionais.</div>
+    </div>
+
+    <div class="source purple">
+      <div class="source-top">
+        <a href="https://nielseniq.com/global/en/insights/report/" class="source-name" target="_blank">NielsenIQ — Consumer Outlook</a>
+        <span class="source-type purple">Research</span>
+      </div>
+      <div class="source-url">nielseniq.com/global/en/insights/report</div>
+      <div class="source-desc">Guia 2026 publicado anualmente: comportamento de gasto CPG, valor médio de cesta, sensibilidade a preço.</div>
+    </div>
+
+    <div class="source purple">
+      <div class="source-top">
+        <a href="https://www.circana.com/industries/center-store-and-frozen-foods" class="source-name" target="_blank">Circana (ex-IRI) — Center Store & Frozen Foods</a>
+        <span class="source-type purple">Research</span>
+      </div>
+      <div class="source-url">circana.com/industries/center-store-and-frozen-foods</div>
+      <div class="source-desc">POS + painel de lares; lib estudos públicos sobre super-premium ice cream e categoria congelados.</div>
+    </div>
+
+    <div class="source purple">
+      <div class="source-top">
+        <a href="https://www.indexbox.io/search/ice-cream-sales-statistics/" class="source-name" target="_blank">IndexBox — Ice Cream Statistics</a>
+        <span class="source-type purple">Dados</span>
+      </div>
+      <div class="source-url">indexbox.io/search/ice-cream-sales-statistics</div>
+      <div class="source-desc">Comércio exterior e estatísticas de produção/preço por país — ótimo para detectar oportunidades de exportação e importação.</div>
+    </div>
+
+    <div class="subsection-title">Fontes abertas e institucionais</div>
+
+    <div class="source purple">
+      <div class="source-top">
+        <a href="https://www.idfa.org/" class="source-name" target="_blank">IDFA — International Dairy Foods Association</a>
+        <span class="source-type purple">Associação</span>
+      </div>
+      <div class="source-url">idfa.org</div>
+      <div class="source-desc">Dados-âncora dos EUA: 90% dos lares consomem sorvete; 65% das vendas anuais entre mai-ago. Publica relatórios e calendário oficial do setor.</div>
+    </div>
+
+    <div class="source purple">
+      <div class="source-top">
+        <a href="https://www.mintel.com/insights/food-and-drink/" class="source-name" target="_blank">Mintel — Food & Drink Insights (aberto)</a>
+        <span class="source-type purple">Blog</span>
+      </div>
+      <div class="source-url">mintel.com/insights/food-and-drink</div>
+      <div class="source-desc">Conteúdo gratuito da Mintel: artigos de tendência sem paywall, base para validar trends antes de comprar relatório.</div>
+    </div>
+  </div>
+
+  <!-- ============ SEÇÃO 3 ============ -->
+  <div class="section" id="sec3">
+    <div class="section-header">
+      <div class="section-num blue">03</div>
+      <div class="section-title">Gelato Italiano — Indústria & Cultura</div>
+      <span class="section-tag" style="color:#1565C0;background:#E3F2FD;border-color:#90CAF9;">Itália + EU</span>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://portalegelato.it/" class="source-name" target="_blank">puntoIT — Portale Gelato</a>
+        <span class="source-type blue">Revista</span>
+      </div>
+      <div class="source-url">portalegelato.it</div>
+      <div class="source-desc">A revista n.1 de tendência do setor artesanal italiano (gelato, bar, pastelaria). Conteúdo diário em italiano sobre lançamentos e técnicas.</div>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://puntoitaly.org/" class="source-name" target="_blank">puntoITALY — Edição internacional em inglês</a>
+        <span class="source-type blue">Revista EN</span>
+      </div>
+      <div class="source-url">puntoitaly.org</div>
+      <div class="source-desc">Semestral, distribuída em todas as principais feiras internacionais — porta de entrada para compradores estrangeiros do mercado italiano.</div>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://carpigiani.com/" class="source-name" target="_blank">Carpigiani</a>
+        <span class="source-type blue">Fabricante</span>
+      </div>
+      <div class="source-url">carpigiani.com</div>
+      <div class="source-desc">Maior fabricante mundial de máquinas de gelato. Press room rico, pesquisas de consumo (Gelato World Tour) e calendário de competições.</div>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://www.gelatouniversity.com/" class="source-name" target="_blank">Carpigiani Gelato University</a>
+        <span class="source-type blue">Educação</span>
+      </div>
+      <div class="source-url">gelatouniversity.com (também .com/brasil)</div>
+      <div class="source-desc">+400 cursos/ano em 13 idiomas, 35 campus. Conteúdo educacional aberto sobre receitas, ingredientes e gestão de gelateria.</div>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://www.mec3.com/en/" class="source-name" target="_blank">MEC3</a>
+        <span class="source-type blue">Insumos</span>
+      </div>
+      <div class="source-url">mec3.com · clubedoaprendizmec3.com.br</div>
+      <div class="source-desc">Fornecedor líder de pastas e bases — "Clube do Aprendiz" no Brasil tem conteúdo de receituário e técnicas para gelaterias.</div>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://www.pregel.com/" class="source-name" target="_blank">PreGel</a>
+        <span class="source-type blue">Insumos</span>
+      </div>
+      <div class="source-url">pregel.com</div>
+      <div class="source-desc">Concorrente da MEC3, com forte conteúdo técnico sobre stecco (palitos artesanais), sorbets veganos e funcionais.</div>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://www.sigep.it/en" class="source-name" target="_blank">SIGEP World — Rimini</a>
+        <span class="source-type blue">Feira</span>
+      </div>
+      <div class="source-url">sigep.it/en</div>
+      <div class="source-desc">A maior feira mundial de gelato, pastelaria, bakery e café. Edição 2026: 16–20 jan em Rimini; sedia Gelato World Cup e Gelato Festival World Masters.</div>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://www.gelatoworldcup.com/" class="source-name" target="_blank">Gelato World Cup</a>
+        <span class="source-type blue">Competição</span>
+      </div>
+      <div class="source-url">gelatoworldcup.com</div>
+      <div class="source-desc">Bienal, na SIGEP. 11ª edição em jan/2026. Catálogo das melhores criações mundiais — ouro para mapeamento de tendências de sabor.</div>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://www.gelatofestival.com/" class="source-name" target="_blank">Gelato Festival World Masters</a>
+        <span class="source-type blue">Competição</span>
+      </div>
+      <div class="source-url">gelatofestival.com</div>
+      <div class="source-desc">Competição individual de artesãos com circuito internacional (Itália, EUA, Australia, etc.). Cobertura ano todo, com finalistas mapeáveis.</div>
+    </div>
+  </div>
+
+  <!-- ============ SEÇÃO 4 ============ -->
+  <div class="section" id="sec4">
+    <div class="section-header">
+      <div class="section-num orange">04</div>
+      <div class="section-title">Marcas Benchmark — Imprensa & Releases</div>
+      <span class="section-tag" style="color:#E65100;background:#FFF3E0;border-color:#FFCC80;">Concorrência & inspiração</span>
+    </div>
+
+    <div class="subsection-title">Multinacionais & holdings</div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://corporate.magnumicecream.com/" class="source-name" target="_blank">The Magnum Ice Cream Company (TMICC)</a>
+        <span class="source-type orange">Investor</span>
+      </div>
+      <div class="source-url">corporate.magnumicecream.com</div>
+      <div class="source-desc">Holding listada (AMS/LSE/NYSE) após spin-off da Unilever em dez/2025. Inclui Magnum, Ben & Jerry's, Wall's, Cornetto, Breyers, Talenti, Calippo, Klondike.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.benjerry.com/about-us/press-center" class="source-name" target="_blank">Ben & Jerry's Press Center</a>
+        <span class="source-type orange">Press</span>
+      </div>
+      <div class="source-url">benjerry.com/about-us/press-center</div>
+      <div class="source-desc">Releases, manifesto social, briga judicial sobre independência. Marca-chave para acompanhar ativismo + sorvete.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.haagendazs.com/" class="source-name" target="_blank">Häagen-Dazs (Froneri/GMills)</a>
+        <span class="source-type orange">Marca</span>
+      </div>
+      <div class="source-url">haagendazs.com</div>
+      <div class="source-desc">Após Nestlé vender ~US$ 4 bi à Froneri, US/Canadá ficou em JV; resto do mundo é General Mills. Útil para entender split global super-premium.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.froneri.com/" class="source-name" target="_blank">Froneri</a>
+        <span class="source-type orange">B2B</span>
+      </div>
+      <div class="source-url">froneri.com</div>
+      <div class="source-desc">JV Nestlé + PAI Partners, 2º maior do mundo. Pouco no varejo direto, mas controla portfólio relevante (Dreyer's, Drumstick, agora Häagen-Dazs US).</div>
+    </div>
+
+    <div class="subsection-title">Premium & artesanais (case studies)</div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://saltandstraw.com/" class="source-name" target="_blank">Salt & Straw</a>
+        <span class="source-type orange">DTC</span>
+      </div>
+      <div class="source-url">saltandstraw.com</div>
+      <div class="source-desc">Portland-based, sabores autorais sazonais ("Honey Lavender", colabs). Referência mundial em narrativa de sabor + expansão por loja física.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://vanleeuwenicecream.com/" class="source-name" target="_blank">Van Leeuwen</a>
+        <span class="source-type orange">DTC</span>
+      </div>
+      <div class="source-url">vanleeuwenicecream.com</div>
+      <div class="source-desc">NY, virou caso por sabores estranhos (Hidden Valley Ranch, Kraft Mac & Cheese). Série B de US$ 18 mi recente para expansão de varejo.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://jenis.com/" class="source-name" target="_blank">Jeni's Splendid Ice Creams</a>
+        <span class="source-type orange">DTC</span>
+      </div>
+      <div class="source-url">jenis.com</div>
+      <div class="source-desc">Ohio, colabs culturais (Bridgerton, etc.), DTC robusto. Master class de branding para sorveteria artesanal escalada.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://en.mixuegroup.com/" class="source-name" target="_blank">Mixue Group</a>
+        <span class="source-type orange">China</span>
+      </div>
+      <div class="source-url">en.mixuegroup.com</div>
+      <div class="source-desc">Maior rede de food service da China (>40 mil lojas). Desembarcando no Brasil com aporte R$ 3,2 bi — fator disruptivo no low-cost ice cream.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://baciodilatte.com.br/" class="source-name" target="_blank">Bacio di Latte</a>
+        <span class="source-type orange">BR</span>
+      </div>
+      <div class="source-url">baciodilatte.com.br</div>
+      <div class="source-desc">~175 lojas no Brasil, R$ 800 mi-meta de faturamento (com investida em picolés). Maior benchmark direto do segmento gelato premium nacional.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://exame.com/pme/os-segredos-da-bacio-di-latte-a-sorveteria-de-r-150-milhoes/" class="source-name" target="_blank">Exame — caso Bacio di Latte</a>
+        <span class="source-type orange">Caso</span>
+      </div>
+      <div class="source-url">exame.com/pme</div>
+      <div class="source-desc">Estudo de caso editorial. Centralização de produção em Cotia, mix loja/quiosque, posicionamento "italiano premium".</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://creativosbr.com.br/caso-diletto-o-sumico-da-marca-de-sorvetes-artesanais/" class="source-name" target="_blank">Caso Diletto — o que evitar</a>
+        <span class="source-type orange">Caso</span>
+      </div>
+      <div class="source-url">creativosbr.com.br/caso-diletto</div>
+      <div class="source-desc">Aula sobre storytelling falso: a "historinha mal contada" do avô italiano destruiu marca antes do crescimento real. Leitura obrigatória para o time de branding.</div>
+    </div>
+  </div>
+
+  <!-- ============ SEÇÃO 5 ============ -->
+  <div class="section" id="sec5">
+    <div class="section-header">
+      <div class="section-num green">05</div>
+      <div class="section-title">Tendências de Alimentos — Globais</div>
+      <span class="section-tag" style="color:#2E7D32;background:#E8F5E9;border-color:#A5D6A7;">Macrotendências</span>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://www.innovamarketinsights.com/trends/top-food-and-beverage-trends-2026/" class="source-name" target="_blank">Innova Market Insights — Top 10 Trends 2026</a>
+        <span class="source-type green">Relatório</span>
+      </div>
+      <div class="source-url">innovamarketinsights.com/trends/top-food-and-beverage-trends-2026</div>
+      <div class="source-desc">Referência global. Destaques 2026: proteína, saúde intestinal (gut health), plant-based "autêntico", indulgência consciente.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://media.wholefoodsmarket.com/whole-foods-market-forecasts-the-top-food-and-beverage-trends-for-2026/" class="source-name" target="_blank">Whole Foods — Top 8 Food Trend Predictions 2026</a>
+        <span class="source-type green">Relatório</span>
+      </div>
+      <div class="source-url">wholefoodsmarket.com/trends</div>
+      <div class="source-desc">Trends Council: volta do sebo bovino, "vinegar renaissance", ano internacional da mulher agricultora (FAO/ONU 2026).</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://www.foodnavigator.com/" class="source-name" target="_blank">FoodNavigator</a>
+        <span class="source-type green">Portal</span>
+      </div>
+      <div class="source-url">foodnavigator.com</div>
+      <div class="source-desc">William Reed. Cobertura diária europeia de inovação, regulação, rotulagem. Tema quente atual: backlash a ultraprocessados.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://www.foodnavigator-usa.com/" class="source-name" target="_blank">FoodNavigator-USA</a>
+        <span class="source-type green">Portal</span>
+      </div>
+      <div class="source-url">foodnavigator-usa.com</div>
+      <div class="source-desc">Edição americana — viés CPG, MAHA, GLP-1 effect, regulação FDA. Espelha tendências que chegam ao Brasil em 12-18 meses.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://www.fooddive.com/" class="source-name" target="_blank">Food Dive</a>
+        <span class="source-type green">Portal</span>
+      </div>
+      <div class="source-url">fooddive.com</div>
+      <div class="source-desc">Industry Dive. Notícias diárias da indústria CPG nos EUA: M&A, lançamentos, executivos. Newsletter gratuita.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://www.restaurantdive.com/" class="source-name" target="_blank">Restaurant Dive</a>
+        <span class="source-type green">Portal</span>
+      </div>
+      <div class="source-url">restaurantdive.com</div>
+      <div class="source-desc">Foco em food service e cadeias QSR/fast casual. Indicador antecedente para varejo de sorveteria.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://modernrestaurantmanagement.com/" class="source-name" target="_blank">Modern Restaurant Management (MRM)</a>
+        <span class="source-type green">Portal</span>
+      </div>
+      <div class="source-url">modernrestaurantmanagement.com</div>
+      <div class="source-desc">Operação, tech, RH e tendências de restaurante. "Outlook" anual com 30+ especialistas.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://www.dairyreporter.com/" class="source-name" target="_blank">DairyReporter</a>
+        <span class="source-type green">Portal</span>
+      </div>
+      <div class="source-url">dairyreporter.com</div>
+      <div class="source-desc">Hub global de lácteos com seção dedicada de Ice Cream — drivers de compra, sabores e novos formatos.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://www.dairyfoods.com/" class="source-name" target="_blank">Dairy Foods Magazine</a>
+        <span class="source-type green">Revista</span>
+      </div>
+      <div class="source-url">dairyfoods.com</div>
+      <div class="source-desc">Revista B2B com cobertura mensal de processadores, ingredientes, embalagem e novidades de sorvete.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://www.foodbusinessnews.net/" class="source-name" target="_blank">Food Business News</a>
+        <span class="source-type green">Portal</span>
+      </div>
+      <div class="source-url">foodbusinessnews.net</div>
+      <div class="source-desc">Sosland Publishing. Foco em negócios e supply chain — resultados, IPOs, fusões CPG nos EUA.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://www.specialtyfood.com/" class="source-name" target="_blank">Specialty Food Association</a>
+        <span class="source-type green">Associação</span>
+      </div>
+      <div class="source-url">specialtyfood.com</div>
+      <div class="source-desc">Trade group de US$ 219 bi. Promove o Fancy Food Show (NYC/Vegas) e os sofi Awards — anunciou "SenseMaxxing" como Trend of the Year 2026.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://tastewise.io/" class="source-name" target="_blank">Tastewise</a>
+        <span class="source-type green">Plataforma</span>
+      </div>
+      <div class="source-url">tastewise.io</div>
+      <div class="source-desc">IA + painéis ao vivo de consumidor. Usada por PepsiCo, Kraft, Nestlé. Blog público com tendências semanais já é valor (sem assinar).</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://spoonshot.com/" class="source-name" target="_blank">Spoonshot</a>
+        <span class="source-type green">Plataforma</span>
+      </div>
+      <div class="source-url">spoonshot.com</div>
+      <div class="source-desc">IA + food science para prever ingredientes emergentes. Alternativa à Tastewise com viés científico.</div>
+    </div>
+  </div>
+
+  <!-- ============ SEÇÃO 6 ============ -->
+  <div class="section" id="sec6">
+    <div class="section-header">
+      <div class="section-num gold">06</div>
+      <div class="section-title">Branding, Design & Packaging</div>
+      <span class="section-tag" style="color:#B8860B;background:#FFF8E1;border-color:#F5C518;">Identidade visual</span>
+    </div>
+
+    <div class="source gold">
+      <div class="source-top">
+        <a href="https://www.underconsideration.com/brandnew/" class="source-name" target="_blank">Brand New (UnderConsideration)</a>
+        <span class="source-type gold">Crítica</span>
+      </div>
+      <div class="source-url">underconsideration.com/brandnew</div>
+      <div class="source-desc">Desde 2006, o blog-referência mundial em rebrandings (Reviewed/Noted/Spotted). Year-in-review é leitura obrigatória.</div>
+    </div>
+
+    <div class="source gold">
+      <div class="source-top">
+        <a href="https://thedieline.com/" class="source-name" target="_blank">The Dieline</a>
+        <span class="source-type gold">Packaging</span>
+      </div>
+      <div class="source-url">thedieline.com</div>
+      <div class="source-desc">Maior comunidade global de embalagem. Lança "Dieline Awards" anuais — vitrine de packaging premium em food.</div>
+    </div>
+
+    <div class="source gold">
+      <div class="source-top">
+        <a href="https://www.itsnicethat.com/" class="source-name" target="_blank">It's Nice That</a>
+        <span class="source-type gold">Design</span>
+      </div>
+      <div class="source-url">itsnicethat.com</div>
+      <div class="source-desc">Cobertura editorial diária de design gráfico, ilustração e cultura visual. Referência criativa para o time de branding.</div>
+    </div>
+
+    <div class="source gold">
+      <div class="source-top">
+        <a href="https://www.creativereview.co.uk/" class="source-name" target="_blank">Creative Review</a>
+        <span class="source-type gold">Design</span>
+      </div>
+      <div class="source-url">creativereview.co.uk</div>
+      <div class="source-desc">Revista UK com 40+ anos, foco em pensamento criativo aplicado e processos de design de marca.</div>
+    </div>
+
+    <div class="source gold">
+      <div class="source-top">
+        <a href="https://www.luerzersarchive.com/" class="source-name" target="_blank">Lürzer's Archive</a>
+        <span class="source-type gold">Inspiração</span>
+      </div>
+      <div class="source-url">luerzersarchive.com</div>
+      <div class="source-desc">Catálogo bimestral das melhores peças globais de publicidade impressa/audiovisual. Premia rankings de agências/criativos.</div>
+    </div>
+
+    <div class="source gold">
+      <div class="source-top">
+        <a href="https://adsoftheworld.com/" class="source-name" target="_blank">Ads of the World (Clio Network)</a>
+        <span class="source-type gold">Inspiração</span>
+      </div>
+      <div class="source-url">adsoftheworld.com</div>
+      <div class="source-desc">Banco de campanhas indexadas por marca/agência/categoria. Filtrar por "Food/Ice Cream" gera horas de inspiração.</div>
+    </div>
+
+    <div class="source gold">
+      <div class="source-top">
+        <a href="https://www.fubiz.net/en/" class="source-name" target="_blank">Fubiz</a>
+        <span class="source-type gold">Cultura</span>
+      </div>
+      <div class="source-url">fubiz.net</div>
+      <div class="source-desc">Curadoria francesa de cultura criativa, arte e design. Boa para tendências estéticas que migram para food/embalagem.</div>
+    </div>
+
+    <div class="source gold">
+      <div class="source-top">
+        <a href="https://www.trendhunter.com/" class="source-name" target="_blank">Trend Hunter</a>
+        <span class="source-type gold">Crowd</span>
+      </div>
+      <div class="source-url">trendhunter.com</div>
+      <div class="source-desc">Maior comunidade do mundo de tendências. Filtrar por "Ice Cream", "Gelato", "Frozen Desserts" para catálogo de inovações.</div>
+    </div>
+  </div>
+
+  <!-- ============ SEÇÃO 7 ============ -->
+  <div class="section" id="sec7">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-title">Marketing & Comunicação — Brasil</div>
+      <span class="section-tag">Mercado nacional</span>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://www.meioemensagem.com.br/" class="source-name" target="_blank">Meio & Mensagem</a>
+        <span class="source-type">Portal</span>
+      </div>
+      <div class="source-url">meioemensagem.com.br</div>
+      <div class="source-desc">O principal portal de marketing/mídia/comunicação do Brasil. Organiza Caboré, Effie Awards, Women To Watch e os eventos Maximídia e ProXXIma.</div>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://www.proxxima.com.br/" class="source-name" target="_blank">ProXXIma</a>
+        <span class="source-type">Evento</span>
+      </div>
+      <div class="source-url">proxxima.com.br</div>
+      <div class="source-desc">Evento M&M comemorando 20 anos em 26-27 mai 2026 (WTC SP). +50 sessões e relançamento do ProXXIma Startups com foco em IA.</div>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://www.updateordie.com/" class="source-name" target="_blank">Update or Die</a>
+        <span class="source-type">Conteúdo</span>
+      </div>
+      <div class="source-url">updateordie.com</div>
+      <div class="source-desc">Conteúdo curado de inovação, marketing, design e cultura digital. Ricardo Cavallini & equipe. Lá nascem muitos memes do mercado.</div>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://adnews.com.br/" class="source-name" target="_blank">Adnews</a>
+        <span class="source-type">Portal</span>
+      </div>
+      <div class="source-url">adnews.com.br</div>
+      <div class="source-desc">Cobertura veloz de campanhas, agências, lançamentos. Tom mais leve que M&M; ótima para captar o "buzz" da semana.</div>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://propmark.com.br/" class="source-name" target="_blank">propmark</a>
+        <span class="source-type">Portal</span>
+      </div>
+      <div class="source-url">propmark.com.br</div>
+      <div class="source-desc">Mídia especializada em publicidade e marketing. Editorial denso, foco em estratégia e movimentações executivas.</div>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://mundodomarketing.com.br/" class="source-name" target="_blank">Mundo do Marketing</a>
+        <span class="source-type">Portal</span>
+      </div>
+      <div class="source-url">mundodomarketing.com.br</div>
+      <div class="source-desc">Cases, pesquisas, lançamentos e ativações. Diretório robusto de estudos de caso brasileiros.</div>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://clubedecriacao.com.br/" class="source-name" target="_blank">Clube de Criação</a>
+        <span class="source-type">Premiação</span>
+      </div>
+      <div class="source-url">clubedecriacao.com.br</div>
+      <div class="source-desc">Referência desde 1975. Anuário anual com o melhor da propaganda brasileira — guia visual de qualidade criativa.</div>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://www.b9.com.br/" class="source-name" target="_blank">B9 / Brainstorm9</a>
+        <span class="source-type">Portal</span>
+      </div>
+      <div class="source-url">b9.com.br</div>
+      <div class="source-desc">Propaganda, cultura pop, tech. Produz também podcasts ("Braincast"), e tem sensibilidade fina para "cultura → marca".</div>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://exame.com/marketing/" class="source-name" target="_blank">Exame — Marketing</a>
+        <span class="source-type">Editoria</span>
+      </div>
+      <div class="source-url">exame.com/marketing</div>
+      <div class="source-desc">Editoria de marketing da Exame, mais ligada a negócios. Boa para narrativas que cruzam CMO com CEO.</div>
+    </div>
+
+    <div class="subsection-title">Imprensa de branding/marketing internacional</div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://www.adweek.com/" class="source-name" target="_blank">Adweek</a>
+        <span class="source-type">Portal</span>
+      </div>
+      <div class="source-url">adweek.com (seção CPG/Grocery)</div>
+      <div class="source-desc">Cobre o marketing americano com seção dedicada a CPG — útil para mapear narrativas e disrupters de food brands.</div>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://adage.com/brand-marketing/food-beverage" class="source-name" target="_blank">Ad Age — Food & Beverage</a>
+        <span class="source-type">Portal</span>
+      </div>
+      <div class="source-url">adage.com/brand-marketing/food-beverage</div>
+      <div class="source-desc">Editoria dedicada de food/beverage. Análises de campanhas e dados de share-of-voice.</div>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://www.thedrum.com/" class="source-name" target="_blank">The Drum</a>
+        <span class="source-type">Portal</span>
+      </div>
+      <div class="source-url">thedrum.com</div>
+      <div class="source-desc">UK, viés global. Awards anuais de Commerce Media, IA e CPG — incluindo Liquid Death, Chobani, Nestlé.</div>
+    </div>
+
+    <div class="source">
+      <div class="source-top">
+        <a href="https://www.marketingweek.com/" class="source-name" target="_blank">Marketing Week</a>
+        <span class="source-type">Portal</span>
+      </div>
+      <div class="source-url">marketingweek.com</div>
+      <div class="source-desc">Editorial UK sólido em estratégia de marca e effectiveness (Ehrenberg-Bass etc.). Ótimo para fundamentar projetos.</div>
+    </div>
+  </div>
+
+  <!-- ============ SEÇÃO 8 ============ -->
+  <div class="section" id="sec8">
+    <div class="section-header">
+      <div class="section-num purple">08</div>
+      <div class="section-title">Negócios, Varejo & Estratégia</div>
+      <span class="section-tag" style="color:#7B1FA2;background:#F3E5F5;border-color:#CE93D8;">BR + Global</span>
+    </div>
+
+    <div class="subsection-title">Brasil — negócios e novos negócios</div>
+
+    <div class="source purple">
+      <div class="source-top">
+        <a href="https://neofeed.com.br/" class="source-name" target="_blank">NeoFeed</a>
+        <span class="source-type purple">Portal</span>
+      </div>
+      <div class="source-url">neofeed.com.br</div>
+      <div class="source-desc">Negócios, finanças, startups, inovação. Cobertura forte de varejo alimentar e do impacto GLP-1. Newsletter diária.</div>
+    </div>
+
+    <div class="source purple">
+      <div class="source-top">
+        <a href="https://braziljournal.com/" class="source-name" target="_blank">Brazil Journal</a>
+        <span class="source-type purple">Portal</span>
+      </div>
+      <div class="source-url">braziljournal.com</div>
+      <div class="source-desc">Quase um "Bloomberg do Brasil" — análises curtas e diárias do mercado, executivos e M&A.</div>
+    </div>
+
+    <div class="source purple">
+      <div class="source-top">
+        <a href="https://pipelinevalor.globo.com/" class="source-name" target="_blank">Pipeline Valor</a>
+        <span class="source-type purple">Portal</span>
+      </div>
+      <div class="source-url">pipelinevalor.globo.com</div>
+      <div class="source-desc">Valor Econômico. Foco em corporativo, M&A, varejo e investimento. Bom para entender fluxos de capital no setor de alimentos.</div>
+    </div>
+
+    <div class="source purple">
+      <div class="source-top">
+        <a href="https://www.infomoney.com.br/negocios/" class="source-name" target="_blank">InfoMoney — Negócios</a>
+        <span class="source-type purple">Portal</span>
+      </div>
+      <div class="source-url">infomoney.com.br/negocios</div>
+      <div class="source-desc">Cobertura ampla de empresas, IPO, varejo. Útil para empresas brasileiras de capital aberto e franquia.</div>
+    </div>
+
+    <div class="source purple">
+      <div class="source-top">
+        <a href="https://exame.com/" class="source-name" target="_blank">Exame</a>
+        <span class="source-type purple">Portal</span>
+      </div>
+      <div class="source-url">exame.com</div>
+      <div class="source-desc">Generalista de negócios. Cases corporativos, "EXAME 100" e cobertura de PME, com bons relatórios sobre sorveterias.</div>
+    </div>
+
+    <div class="source purple">
+      <div class="source-top">
+        <a href="https://valor.globo.com/empresas/" class="source-name" target="_blank">Valor Econômico — Empresas</a>
+        <span class="source-type purple">Portal</span>
+      </div>
+      <div class="source-url">valor.globo.com/empresas</div>
+      <div class="source-desc">O jornal econômico mais denso do país. Seção Empresas/Agronegócios cobre indústria de alimentos e cooperativas leiteiras.</div>
+    </div>
+
+    <div class="subsection-title">Varejo global</div>
+
+    <div class="source purple">
+      <div class="source-top">
+        <a href="https://www.modernretail.co/" class="source-name" target="_blank">Modern Retail</a>
+        <span class="source-type purple">Portal</span>
+      </div>
+      <div class="source-url">modernretail.co</div>
+      <div class="source-desc">Digiday. Foco em DTC, Amazon-era e como marcas tradicionais reagem a novos canais.</div>
+    </div>
+
+    <div class="source purple">
+      <div class="source-top">
+        <a href="https://www.retailbrew.com/" class="source-name" target="_blank">Retail Brew</a>
+        <span class="source-type purple">Newsletter</span>
+      </div>
+      <div class="source-url">retailbrew.com</div>
+      <div class="source-desc">Morning Brew. Newsletter gratuita seg/qua/sex. Cobertura recente: IA em loja (Vitamin Shoppe, Tecovas).</div>
+    </div>
+
+    <div class="source purple">
+      <div class="source-top">
+        <a href="https://www.retaildive.com/" class="source-name" target="_blank">Retail Dive</a>
+        <span class="source-type purple">Portal</span>
+      </div>
+      <div class="source-url">retaildive.com</div>
+      <div class="source-desc">Industry Dive. Notícias diárias do varejo nos EUA — lançamentos de loja, falências, novas estratégias.</div>
+    </div>
+
+    <div class="source purple">
+      <div class="source-top">
+        <a href="https://www.marketingbrew.com/" class="source-name" target="_blank">Marketing Brew</a>
+        <span class="source-type purple">Newsletter</span>
+      </div>
+      <div class="source-url">marketingbrew.com</div>
+      <div class="source-desc">Morning Brew. Brand strategy, social, ad tech — leitura diária para o time. Cobertura de colab Jeni's x Bridgerton recente.</div>
+    </div>
+
+    <div class="source purple">
+      <div class="source-top">
+        <a href="https://www.nrn.com/" class="source-name" target="_blank">Nation's Restaurant News</a>
+        <span class="source-type purple">Portal</span>
+      </div>
+      <div class="source-url">nrn.com</div>
+      <div class="source-desc">A bíblia do food service nos EUA. Cobre Jeni's, Salt & Straw, modelos QSR e expansão de cadeias.</div>
+    </div>
+  </div>
+
+  <!-- ============ SEÇÃO 9 ============ -->
+  <div class="section" id="sec9">
+    <div class="section-header">
+      <div class="section-num blue">09</div>
+      <div class="section-title">IA + Consumo + Varejo</div>
+      <span class="section-tag" style="color:#1565C0;background:#E3F2FD;border-color:#90CAF9;">Tech & estratégia</span>
+    </div>
+
+    <div class="subsection-title">Análise estratégica</div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://stratechery.com/" class="source-name" target="_blank">Stratechery (Ben Thompson)</a>
+        <span class="source-type blue">Newsletter</span>
+      </div>
+      <div class="source-url">stratechery.com</div>
+      <div class="source-desc">A análise mais influente do mundo sobre estratégia tech e plataformas. Cobertura recente abrangente sobre OpenAI e o ciclo de IA.</div>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://a16z.com/consumer/" class="source-name" target="_blank">a16z — Consumer</a>
+        <span class="source-type blue">VC</span>
+      </div>
+      <div class="source-url">a16z.com/consumer</div>
+      <div class="source-desc">Andreessen Horowitz. "State of Consumer AI" anual + relatórios específicos sobre IA em apps, retail e everyday-AI.</div>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://www.cbinsights.com/research/" class="source-name" target="_blank">CB Insights — Research</a>
+        <span class="source-type blue">VC Data</span>
+      </div>
+      <div class="source-url">cbinsights.com/research</div>
+      <div class="source-desc">Categorias "Consumer Products" e "Artificial Intelligence". Publica o AI 100 anual e mapas de mercado para CPG-tech.</div>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://www.theinformation.com/" class="source-name" target="_blank">The Information</a>
+        <span class="source-type blue">Premium</span>
+      </div>
+      <div class="source-url">theinformation.com</div>
+      <div class="source-desc">Jornal pago de tech do Vale. Vazamentos exclusivos sobre OpenAI, Anthropic, varejo digital e movimentos M&A.</div>
+    </div>
+
+    <div class="subsection-title">Boletins diários de IA</div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://www.therundown.ai/" class="source-name" target="_blank">The Rundown AI</a>
+        <span class="source-type blue">Newsletter</span>
+      </div>
+      <div class="source-url">therundown.ai</div>
+      <div class="source-desc">+1,75 mi assinantes. 46% C-level/founders. Brief diário em ~3min de leitura.</div>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://www.bensbites.com/" class="source-name" target="_blank">Ben's Bites</a>
+        <span class="source-type blue">Newsletter</span>
+      </div>
+      <div class="source-url">bensbites.com</div>
+      <div class="source-desc">120K+ founders. Foco em como empresas estão usando IA de fato — cases acionáveis.</div>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://www.theneurondaily.com/" class="source-name" target="_blank">The Neuron</a>
+        <span class="source-type blue">Newsletter</span>
+      </div>
+      <div class="source-url">theneurondaily.com</div>
+      <div class="source-desc">550K+ leitores. Tom irreverente, humano. Boa para acompanhar IA sem afogar em hype técnico.</div>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://tldr.tech/ai" class="source-name" target="_blank">TLDR AI</a>
+        <span class="source-type blue">Newsletter</span>
+      </div>
+      <div class="source-url">tldr.tech/ai</div>
+      <div class="source-desc">3-5 manchetes/dia em formato seco. Trinca com Rundown + Superhuman = +4 mi assinantes combinados, 0 paywall.</div>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://www.deeplearning.ai/the-batch/" class="source-name" target="_blank">The Batch (Andrew Ng)</a>
+        <span class="source-type blue">Newsletter</span>
+      </div>
+      <div class="source-url">deeplearning.ai/the-batch</div>
+      <div class="source-desc">Semanal, viés mais acadêmico-aplicado. Editorial educativo de Andrew Ng.</div>
+    </div>
+
+    <div class="subsection-title">Blogs de empresas-âncora de IA</div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://www.anthropic.com/news" class="source-name" target="_blank">Anthropic — News</a>
+        <span class="source-type blue">Blog</span>
+      </div>
+      <div class="source-url">anthropic.com/news</div>
+      <div class="source-desc">Atualizações sobre Claude, Claude Code (4% de commits do GitHub em 2026), pesquisa de segurança. Anthropic ultrapassou OpenAI em adoção corporativa.</div>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://openai.com/news/" class="source-name" target="_blank">OpenAI — News</a>
+        <span class="source-type blue">Blog</span>
+      </div>
+      <div class="source-url">openai.com/news</div>
+      <div class="source-desc">Lançamentos de produto, papers, anúncios institucionais (ex. OpenAI Deployment Co.).</div>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://huggingface.co/blog" class="source-name" target="_blank">Hugging Face — Blog</a>
+        <span class="source-type blue">Blog</span>
+      </div>
+      <div class="source-url">huggingface.co/blog</div>
+      <div class="source-desc">+30% da Fortune 500 mantém contas. "State of Open Source" semestral. Útil para acompanhar IA aberta usável.</div>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://www.bloomberg.com/ai" class="source-name" target="_blank">Bloomberg — AI</a>
+        <span class="source-type blue">Mídia</span>
+      </div>
+      <div class="source-url">bloomberg.com/ai</div>
+      <div class="source-desc">Editoria dedicada de IA com viés financeiro. Bloomberg "AskB" usa pings de celular para prever vendas de varejo.</div>
+    </div>
+
+    <div class="source blue">
+      <div class="source-top">
+        <a href="https://www.technologyreview.com/" class="source-name" target="_blank">MIT Technology Review</a>
+        <span class="source-type blue">Revista</span>
+      </div>
+      <div class="source-url">technologyreview.com</div>
+      <div class="source-desc">Cobertura editorial profunda — análises de impacto e ética da IA, com lentes regulatórias importantes.</div>
+    </div>
+  </div>
+
+  <!-- ============ SEÇÃO 10 ============ -->
+  <div class="section" id="sec10">
+    <div class="section-header">
+      <div class="section-num gold">10</div>
+      <div class="section-title">Trend Forecasting & Cultura</div>
+      <span class="section-tag" style="color:#B8860B;background:#FFF8E1;border-color:#F5C518;">Antecipação</span>
+    </div>
+
+    <div class="source gold">
+      <div class="source-top">
+        <a href="https://www.wgsn.com/en" class="source-name" target="_blank">WGSN</a>
+        <span class="source-type gold">Premium</span>
+      </div>
+      <div class="source-url">wgsn.com</div>
+      <div class="source-desc">27 anos, padrão-ouro em forecasting (algoritmo TrendCurve+). Cores, materiais, comportamento — assinatura institucional cara, mas relatórios resumidos circulam.</div>
+    </div>
+
+    <div class="source gold">
+      <div class="source-top">
+        <a href="https://stylus.com/" class="source-name" target="_blank">Stylus</a>
+        <span class="source-type gold">Premium</span>
+      </div>
+      <div class="source-url">stylus.com</div>
+      <div class="source-desc">Interdisciplinar (20 indústrias incluindo food). Tom mais cultural que WGSN. Boa alternativa.</div>
+    </div>
+
+    <div class="source gold">
+      <div class="source-top">
+        <a href="https://business.pinterest.com/pinterest-predicts/" class="source-name" target="_blank">Pinterest Predicts</a>
+        <span class="source-type gold">Gratuito</span>
+      </div>
+      <div class="source-url">business.pinterest.com/pinterest-predicts</div>
+      <div class="source-desc">Relatório anual gratuito de tendências do ano seguinte com 88% de acurácia. 2026: "Cabbage Crush", "Gimme Gummy", "Cool Blue".</div>
+    </div>
+
+    <div class="source gold">
+      <div class="source-top">
+        <a href="https://www.trendwatching.com/" class="source-name" target="_blank">TrendWatching</a>
+        <span class="source-type gold">Híbrido</span>
+      </div>
+      <div class="source-url">trendwatching.com</div>
+      <div class="source-desc">Pioneira em consumer trends globais. Mistura assinatura paga e relatórios gratuitos.</div>
+    </div>
+
+    <div class="source gold">
+      <div class="source-top">
+        <a href="https://www.canva.com/learn/google-year-in-search/" class="source-name" target="_blank">Google — Year in Search</a>
+        <span class="source-type gold">Gratuito</span>
+      </div>
+      <div class="source-url">trends.google.com</div>
+      <div class="source-desc">Trends.google.com + relatórios "Year in Search" e "Think with Google". Comportamento real de busca por país.</div>
+    </div>
+
+    <div class="source gold">
+      <div class="source-top">
+        <a href="https://www.tiktok.com/business/library/whats-next-2026.html" class="source-name" target="_blank">TikTok — What's Next Report</a>
+        <span class="source-type gold">Gratuito</span>
+      </div>
+      <div class="source-url">tiktok.com/business/library</div>
+      <div class="source-desc">Relatório anual oficial do TikTok com tendências de criadores, formatos e categorias (food). Crítico para acompanhar viralidade.</div>
+    </div>
+  </div>
+
+  <!-- ============ SEÇÃO 11 ============ -->
+  <div class="section" id="sec11">
+    <div class="section-header">
+      <div class="section-num orange">11</div>
+      <div class="section-title">Social, Hype & Viral</div>
+      <span class="section-tag" style="color:#E65100;background:#FFF3E0;border-color:#FFCC80;">Cultura em tempo real</span>
+    </div>
+
+    <div class="subsection-title">TikTok — hashtags & creators</div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.tiktok.com/discover/ice-cream-trend" class="source-name" target="_blank">TikTok #IceCreamTrend</a>
+        <span class="source-type orange">Hashtag</span>
+      </div>
+      <div class="source-url">tiktok.com/discover/ice-cream-trend</div>
+      <div class="source-desc">Hub de descoberta para tendências virais (frutas, salty ice cream, mochi). Monitorar semanalmente.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.tiktok.com/discover/famous-tiktok-ice-cream" class="source-name" target="_blank">TikTok — Famous TikTok Ice Cream</a>
+        <span class="source-type orange">Hashtag</span>
+      </div>
+      <div class="source-url">tiktok.com/discover/famous-tiktok-ice-cream</div>
+      <div class="source-desc">Coletânea de marcas que viralizaram. Estudar formato/anúncio/produto que catalisa.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.tiktok.com/@littlemoonsmochi" class="source-name" target="_blank">@littlemoonsmochi (Little Moons)</a>
+        <span class="source-type orange">Creator</span>
+      </div>
+      <div class="source-url">tiktok.com/@littlemoonsmochi</div>
+      <div class="source-desc">Case-escola: marca de mochi gelado que cresceu via TikTok no UK e replicou modelo no Brasil.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.tiktok.com/@eatswithclaire" class="source-name" target="_blank">@eatswithclaire</a>
+        <span class="source-type orange">Creator</span>
+      </div>
+      <div class="source-url">tiktok.com/@eatswithclaire</div>
+      <div class="source-desc">Melbourne. Roteiros de sobremesa virais — boa observatório de hype gourmet.</div>
+    </div>
+
+    <div class="subsection-title">Instagram — páginas de referência</div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.instagram.com/thedieline/" class="source-name" target="_blank">@thedieline</a>
+        <span class="source-type orange">IG</span>
+      </div>
+      <div class="source-url">instagram.com/thedieline</div>
+      <div class="source-desc">Conta da Dieline. Melhor feed do mundo para embalagens premium em food.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.instagram.com/luerzersarchive/" class="source-name" target="_blank">@luerzersarchive</a>
+        <span class="source-type orange">IG</span>
+      </div>
+      <div class="source-url">instagram.com/luerzersarchive</div>
+      <div class="source-desc">Curadoria diária de criatividade publicitária global.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.instagram.com/eater/" class="source-name" target="_blank">@eater</a>
+        <span class="source-type orange">IG</span>
+      </div>
+      <div class="source-url">instagram.com/eater</div>
+      <div class="source-desc">Restaurantes, hype gastronômico, NYC-LA-Tóquio. Sensores antecipados de food trends.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.instagram.com/bonappetitmag/" class="source-name" target="_blank">@bonappetitmag</a>
+        <span class="source-type orange">IG</span>
+      </div>
+      <div class="source-url">instagram.com/bonappetitmag</div>
+      <div class="source-desc">Cultura culinária mainstream. Bom para detectar quando uma tendência "saiu do nicho".</div>
+    </div>
+
+    <div class="subsection-title">YouTube — canais relevantes</div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.youtube.com/c/bonappetit" class="source-name" target="_blank">Bon Appétit</a>
+        <span class="source-type orange">YT</span>
+      </div>
+      <div class="source-url">youtube.com/c/bonappetit</div>
+      <div class="source-desc">"Gourmet Makes", "Test Kitchen". Maior canal de food do YouTube com vibe editorial.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.youtube.com/c/Eater" class="source-name" target="_blank">Eater</a>
+        <span class="source-type orange">YT</span>
+      </div>
+      <div class="source-url">youtube.com/c/Eater</div>
+      <div class="source-desc">Documentários curtos sobre chefs, restaurantes Michelin, processo industrial — ouro para inspiração de operação.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.youtube.com/c/food52" class="source-name" target="_blank">Food52</a>
+        <span class="source-type orange">YT</span>
+      </div>
+      <div class="source-url">youtube.com/c/food52</div>
+      <div class="source-desc">Receitas simples, vibe cozy. Boa para captar estética "home-cook" que migra a marca.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.youtube.com/c/babish" class="source-name" target="_blank">Babish Culinary Universe</a>
+        <span class="source-type orange">YT</span>
+      </div>
+      <div class="source-url">youtube.com/c/babish</div>
+      <div class="source-desc">Andrew Rea. ~10mi inscritos. Cultura pop + cozinha — ótimo termômetro de o-que-fica-popular.</div>
+    </div>
+
+    <div class="subsection-title">Reddit & fóruns</div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.reddit.com/r/icecreamery/" class="source-name" target="_blank">r/icecreamery</a>
+        <span class="source-type orange">Forum</span>
+      </div>
+      <div class="source-url">reddit.com/r/icecreamery</div>
+      <div class="source-desc">Comunidade de fazedores caseiros e profissionais. Discussões técnicas (base, emulsificantes, overrun) sem censura.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.reddit.com/r/icecream/" class="source-name" target="_blank">r/icecream</a>
+        <span class="source-type orange">Forum</span>
+      </div>
+      <div class="source-url">reddit.com/r/icecream</div>
+      <div class="source-desc">Consumidores. Termômetro de percepção de marca (B&J, Häagen-Dazs, Talenti).</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.reddit.com/r/ninjacreami/" class="source-name" target="_blank">r/ninjacreami</a>
+        <span class="source-type orange">Forum</span>
+      </div>
+      <div class="source-url">reddit.com/r/ninjacreami</div>
+      <div class="source-desc">Boom de consumo doméstico com Ninja Creami — sinaliza ameaças e oportunidades de DTC.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.reddit.com/r/foodbusiness/" class="source-name" target="_blank">r/foodbusiness</a>
+        <span class="source-type orange">Forum</span>
+      </div>
+      <div class="source-url">reddit.com/r/foodbusiness</div>
+      <div class="source-desc">Empreendedores food. Discussões de margem, fornecedores, escalonamento.</div>
+    </div>
+
+    <div class="source orange">
+      <div class="source-top">
+        <a href="https://www.reddit.com/r/smallbusiness/" class="source-name" target="_blank">r/smallbusiness</a>
+        <span class="source-type orange">Forum</span>
+      </div>
+      <div class="source-url">reddit.com/r/smallbusiness</div>
+      <div class="source-desc">Discussões reais sobre operação de PME — útil para benchmark de sorveterias americanas.</div>
+    </div>
+  </div>
+
+  <!-- ============ SEÇÃO 12 ============ -->
+  <div class="section" id="sec12">
+    <div class="section-header">
+      <div class="section-num green">12</div>
+      <div class="section-title">Eventos, Feiras & Ferramentas</div>
+      <span class="section-tag" style="color:#2E7D32;background:#E8F5E9;border-color:#A5D6A7;">Calendário & stack</span>
+    </div>
+
+    <div class="subsection-title">Calendário 2026 — feiras-chave</div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://www.sigep.it/en" class="source-name" target="_blank">SIGEP World — 16 a 20 jan 2026 · Rimini</a>
+        <span class="source-type green">Itália</span>
+      </div>
+      <div class="source-url">sigep.it/en</div>
+      <div class="source-desc">A maior feira mundial de gelato + pastelaria + bakery + café. >205 mil visitantes pro. Inclui Gelato World Cup.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://nrfbigshow.nrf.com/" class="source-name" target="_blank">NRF Big Show — jan 2026 · NYC</a>
+        <span class="source-type green">EUA</span>
+      </div>
+      <div class="source-url">nrfbigshow.nrf.com</div>
+      <div class="source-desc">Maior feira de varejo do mundo. 2026 dominada por agentic commerce e IA. Sessões sobre conexão humana × IA, retail media e mais.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://shoptalk.com/" class="source-name" target="_blank">Shoptalk — mar 2026 · Las Vegas</a>
+        <span class="source-type green">EUA</span>
+      </div>
+      <div class="source-url">shoptalk.com</div>
+      <div class="source-desc">Foco em DTC, comércio inovador, marcas disruptoras. Calendário-âncora dos CMOs do varejo.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://www.abf.com.br/eventos/abf-franchising-expo/" class="source-name" target="_blank">ABF Franchising Expo — jun 2026 · SP</a>
+        <span class="source-type green">Brasil</span>
+      </div>
+      <div class="source-url">abf.com.br/eventos/abf-franchising-expo</div>
+      <div class="source-desc">A maior feira de franquias da América Latina. Mapeamento de novas redes de sorvete e açaí.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://www.specialtyfood.com/fancy-food-shows/summer/" class="source-name" target="_blank">Summer Fancy Food Show — 28 a 30 jun 2026 · NYC</a>
+        <span class="source-type green">EUA</span>
+      </div>
+      <div class="source-url">specialtyfood.com/fancy-food-shows/summer</div>
+      <div class="source-desc">70ª edição. 40+ categorias, lançamentos especialidades, sofi Awards. Onde "SenseMaxxing" foi anunciado como Trend 2026.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://www.canneslions.com/" class="source-name" target="_blank">Cannes Lions — 21 a 25 jun 2026</a>
+        <span class="source-type green">França</span>
+      </div>
+      <div class="source-url">canneslions.com</div>
+      <div class="source-desc">O Oscar da criatividade publicitária mundial. Onde se reconhecem (e copiam) os melhores cases de marca.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://www.proxxima.com.br/" class="source-name" target="_blank">ProXXIma — 26 a 27 mai 2026 · SP</a>
+        <span class="source-type green">Brasil</span>
+      </div>
+      <div class="source-url">proxxima.com.br</div>
+      <div class="source-desc">20 anos M&M. +50 sessões, foco em IA + criatividade. ProXXIma Startups (R$ 40k em prêmios) volta após uma década.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://abis.com.br/" class="source-name" target="_blank">Fispal Food Service / Mercosorvet — ago 2026 · SP</a>
+        <span class="source-type green">Brasil</span>
+      </div>
+      <div class="source-url">fispalfoodservice.com.br</div>
+      <div class="source-desc">A principal feira nacional de food service inclui o Mercosorvet, evento dedicado ao setor sorveteiro brasileiro.</div>
+    </div>
+
+    <div class="subsection-title">Stack de monitoramento</div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://feedly.com/" class="source-name" target="_blank">Feedly</a>
+        <span class="source-type green">RSS</span>
+      </div>
+      <div class="source-url">feedly.com</div>
+      <div class="source-desc">Agregador moderno com IA "Leo" para filtrar tópicos. Plano Pro permite alertas por palavra-chave em milhares de fontes.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://www.inoreader.com/" class="source-name" target="_blank">Inoreader</a>
+        <span class="source-type green">RSS</span>
+      </div>
+      <div class="source-url">inoreader.com</div>
+      <div class="source-desc">Concorrente Feedly. Monitoring feeds escaneiam a web em tempo real por palavras-chave (Boolean) — ótimo para "sorvete + IA".</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://www.google.com/alerts" class="source-name" target="_blank">Google Alerts</a>
+        <span class="source-type green">Alerta</span>
+      </div>
+      <div class="source-url">google.com/alerts</div>
+      <div class="source-desc">Gratuito. Configurar para: "Gela Boca", "sorvete artesanal", "Bacio di Latte", "Mixue Brasil", "Magnum Ice Cream Co", etc.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://trends.google.com/" class="source-name" target="_blank">Google Trends</a>
+        <span class="source-type green">Dados</span>
+      </div>
+      <div class="source-url">trends.google.com</div>
+      <div class="source-desc">Comparar interesse por sabor ("dubai chocolate" vs "matcha" vs "ube"), região e janela temporal. Indicador antecedente.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://exploding-topics.com/" class="source-name" target="_blank">Exploding Topics</a>
+        <span class="source-type green">Tendência</span>
+      </div>
+      <div class="source-url">exploding-topics.com</div>
+      <div class="source-desc">Identifica tópicos com crescimento >500% antes de chegarem ao mainstream. Filtro food/CPG é precioso.</div>
+    </div>
+
+    <div class="source green">
+      <div class="source-top">
+        <a href="https://muckrack.com/" class="source-name" target="_blank">Muck Rack</a>
+        <span class="source-type green">PR</span>
+      </div>
+      <div class="source-url">muckrack.com</div>
+      <div class="source-desc">Database de jornalistas. Achar quem cobre food/CPG no Brasil e no mundo, monitorar o que escrevem.</div>
+    </div>
+  </div>
+
+  <!-- CTA / NOTES -->
+  <div class="intro" style="border-left-color:#7B1FA2;background:#FCE4EC;">
+    <strong style="color:#7B1FA2;">Sugestão de uso semanal.</strong> Configure Feedly/Inoreader com pastas: <em>(1) BR-Sorvete</em> (ABIS, Abrasorvete, Food Service News, NeoFeed/varejo), <em>(2) Global-Gelato</em> (puntoIT, Carpigiani, DairyReporter ice cream), <em>(3) Tendências Food</em> (FoodNavigator, FoodDive, Innova blog, Tastewise), <em>(4) Branding & Marketing</em> (Brand New, Dieline, M&M, propmark, Adweek/CPG), <em>(5) IA & Negócios</em> (Stratechery, a16z, Anthropic, Marketing Brew, Retail Brew). Combine com Google Alerts para marcas-alvo. Tempo total: ~30 min/dia de leitura focada.
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="nav">
+    <a href="index.html">← Edição atual</a>
+    <a href="arquivo.html">📂 Arquivo de edições</a>
+    <a href="fontes-radar.html">📡 Fontes (esta página)</a>
+  </div>
+  <p><strong>Inteligência de Mercado — Time Branding</strong></p>
+  <p>Projeto de Inovação e Inteligência de Mercado</p>
+  <p>Coord. Alessandra Rossi 🟢 <a href="https://wa.me/5544998945309">44 998945309</a> &nbsp;|&nbsp; Estrategista: Ale Oliveira 🟢 <a href="https://wa.me/5544999077313">44 999077313</a></p>
+  <p style="margin-top:12px; color: #616161; font-size:11px;">© 2026 Gela Boca · Radar de Mercado · Documento curado em 17 mai 2026</p>
+</div>
+
+</body>
+</html>
